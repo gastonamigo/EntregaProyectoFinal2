@@ -40,14 +40,14 @@ AuthRouter.post("/users/login", async (req, res) => {
         req.session.user = user.email;
         return res.redirect("/products");
       } else {
-        res.send(`Contraseña incorrecta <a href="/login">Intentar de nuevo</a>`);
+        res.send(`Contraseña incorrecta <a href="/users/login">Intentar de nuevo</a>`);
       }
     } else {
       //si no existe el usuario
       if (!email) {
-        res.send(`Debe ingresar un correo electrónico <a href="/login">Intentar de nuevo</a>`);
+        res.send(`Debe ingresar un correo electrónico <a href="/users/login">Intentar de nuevo</a>`);
       } else {
-        res.send(`Usuario no encontrado <a href="/users/registro">Registrarte</a>o Volver a <a href="/login">loguearte</a>`);
+        res.send(`Usuario no encontrado <a href="/users/registro">Registrarte</a>o Volver a <a href="/users/login">loguearte</a>`);
       }
     }
   } catch (error) {
